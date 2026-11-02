@@ -54,8 +54,9 @@ export function Hero() {
           </p>
           <ul className="space-y-1.5 font-mono text-[11px] text-dim">
             <li><span className="text-ember">●</span> ortada model</li>
-            <li><span className="text-violet">■</span> etrafında harness: model tool çağırır, sonuç döner</li>
-            <li><span className="text-frost">◆</span> yörüngede ürünler: tıkla, oraya git</li>
+            <li><span className="text-violet">◇</span> etrafında harness: tool, skill, hook, alt ajan, hafıza, test</li>
+            <li><span className="text-ember">→</span> turuncu ışık çağrı, <span className="text-sea">yeşil</span> ışık dönen sonuç</li>
+            <li><span className="text-frost">◆</span> yörüngede Cold Take ve Rota: tıkla, oraya git</li>
           </ul>
         </motion.div>
       </div>

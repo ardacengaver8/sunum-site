@@ -4,7 +4,7 @@ import { useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
 // A made-up film poster drawn on a canvas, so the page needs no image files.
-function usePosterTexture() {
+export function usePosterTexture() {
   return useMemo(() => {
     const c = document.createElement('canvas')
     c.width = 512
