@@ -1,4 +1,3 @@
-import { Html } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
@@ -28,6 +27,7 @@ const V_VIOLET = asVec(VIOLET)
 const V_FROST = asVec(FROST)
 
 const tmp = new THREE.Vector3()
+const under = new THREE.Vector3()
 const ctrl = new THREE.Vector3()
 const curve = new THREE.QuadraticBezierCurve3(new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3())
 
@@ -466,7 +466,8 @@ function MiniGlobe() {
 const ORBIT = { x: 2.75, y: 0.95, z: 1.5 }
 
 // The two products on an outer orbit. Click one to jump to its section.
-function Product({ offset, color, label, target, children }) {
+// Hovering one shows its name in `tag`, a plain DOM element over the canvas.
+function Product({ offset, color, label, target, tag, children }) {
   const ref = useRef(null)
   const [hover, setHover] = useState(false)
 
@@ -477,6 +478,12 @@ function Product({ offset, color, label, target, children }) {
     ref.current.rotation.y = Math.sin(t * 0.5 + offset) * 0.35
     ref.current.rotation.z = Math.sin(t * 0.4 + offset) * 0.06
     ref.current.scale.setScalar(THREE.MathUtils.lerp(ref.current.scale.x, hover ? 1.25 : 1, 0.12))
+    const el = tag.current
+    if (hover && el) {
+      ref.current.localToWorld(under.set(0, -0.72, 0)).project(state.camera)
+      el.style.left = `${((under.x + 1) / 2) * state.size.width}px`
+      el.style.top = `${((1 - under.y) / 2) * state.size.height}px`
+    }
   })
 
   return (
@@ -489,21 +496,25 @@ function Product({ offset, color, label, target, children }) {
       onPointerOver={() => {
         setHover(true)
         document.body.style.cursor = 'pointer'
+        const el = tag.current
+        if (!el) return
+        el.textContent = `${label} →`
+        el.style.color = color
+        el.style.borderColor = `${color}66`
+        el.style.opacity = '1'
       }}
       onPointerOut={() => {
         setHover(false)
         document.body.style.cursor = ''
+        if (tag.current) tag.current.style.opacity = '0'
       }}
     >
       {children}
-      <Html center position={[0, -0.72, 0]} zIndexRange={[30, 0]} className="pointer-events-none">
-        <span
-          className="block rounded-full border px-3 py-1 font-serif text-base whitespace-nowrap italic backdrop-blur transition-opacity duration-300"
-          style={{ borderColor: `${color}66`, color, background: '#07060acc', opacity: hover ? 1 : 0 }}
-        >
-          {label} →
-        </span>
-      </Html>
+      {/* An invisible, roomier target, so both products are as easy to hover. */}
+      <mesh>
+        <sphereGeometry args={[0.7, 16, 16]} />
+        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+      </mesh>
     </group>
   )
 }
@@ -523,7 +534,7 @@ function OrbitPath() {
   )
 }
 
-function System() {
+function System({ tag }) {
   const group = useRef(null)
   const pulse = useRef(0)
   const wide = useThree((s) => s.viewport.aspect > 1.1)
@@ -540,10 +551,10 @@ function System() {
       <ContextDisk />
       <Harness pulse={pulse} />
       <OrbitPath />
-      <Product offset={0.5} color="#9fd8ff" label="Cold Take" target="cold-take">
+      <Product offset={0.5} color="#9fd8ff" label="Cold Take" target="cold-take" tag={tag}>
         <MiniPoster />
       </Product>
-      <Product offset={0.5 + Math.PI} color="#ffb347" label="Rota" target="rota">
+      <Product offset={0.5 + Math.PI} color="#ffb347" label="Rota" target="rota" tag={tag}>
         <MiniGlobe />
       </Product>
     </group>
@@ -569,12 +580,12 @@ function Dust() {
   )
 }
 
-export function HeroScene() {
+export function HeroScene({ tag }) {
   return (
     <>
       <color attach="background" args={['#07060a']} />
       <Dust />
-      <System />
+      <System tag={tag} />
     </>
   )
 }

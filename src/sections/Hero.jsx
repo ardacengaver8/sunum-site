@@ -12,6 +12,7 @@ const rise = (delay) => ({
 
 export function Hero() {
   const ref = useRef(null)
+  const tag = useRef(null)
 
   return (
     <section id="giris" data-section ref={ref} className="relative h-svh min-h-[640px] overflow-hidden">
@@ -23,9 +24,14 @@ export function Hero() {
           camera={{ position: [0, 0.4, 9], fov: 40 }}
         >
           <Suspense fallback={null}>
-            <HeroScene />
+            <HeroScene tag={tag} />
           </Suspense>
         </Canvas>
+        {/* The hovered product's name, placed by the scene. */}
+        <span
+          ref={tag}
+          className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full border bg-ink/80 px-3 py-1 font-serif text-base whitespace-nowrap italic opacity-0 backdrop-blur transition-opacity duration-300"
+        />
       </div>
 
       {/* Darken the bottom so the headline stays readable over the pylons. */}
