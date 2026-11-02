@@ -1,0 +1,73 @@
+// Yolculuk bölümündeki zaman çizelgesi (notlar/ klasöründeki günlüklerden).
+export const journey = [
+  {
+    when: '13 Ekim',
+    tag: 'Gün 1',
+    title: 'İlk temas',
+    text: 'Claude Code ile ilk denemeler: Python temelleri, terminalde satranç ve tetris, pygame ile uzay savaşı. Akşam Cold Take fikri doğdu.',
+    accent: 'ember',
+  },
+  {
+    when: '13–15 Ekim',
+    tag: 'Kurs',
+    title: 'AI Engineering Bazaar',
+    text: 'Fundamentals, Intermediate ve Ecosystem bölümleri bitti; her bölüme feedback yazdım. Loop engineering derslerini hemen Cold Take üzerinde denedim.',
+    accent: 'violet',
+  },
+  {
+    when: '15 Ekim',
+    tag: 'Canlı',
+    title: 'Cold Take yayında',
+    text: 'Ralph loop ile 10 görev, ardından sosyal özellikler. Site PythonAnywhere’de 7/24 açık, 100 sahte kullanıcıyla dolu.',
+    accent: 'frost',
+  },
+  {
+    when: '16 Ekim',
+    tag: 'Kurs',
+    title: 'Claude Academy',
+    text: 'Konuştuğumuz 5 kursu bitirdim. Kulüpler, birlikte puanlama ve dürtme Cold Take’e eklendi.',
+    accent: 'violet',
+  },
+  {
+    when: '19 Ekim',
+    tag: 'Mobil',
+    title: 'Cold Take telefonda',
+    text: 'Tek günde Expo ile iOS + Android uygulaması: siteye JSON API, aynı veritabanı, bildirim olarak gelen dürtmeler.',
+    accent: 'frost',
+  },
+  {
+    when: '20–23 Ekim',
+    tag: 'Rota',
+    title: 'Rota: sıfırdan internete',
+    text: 'Zorunlu teknolojilerle (Turborepo, Next.js, LangGraph, Postgres, Redis, Docker, CI) 4 günde 15 aşama: ilk agent’tan internete açılışa.',
+    accent: 'sun',
+  },
+  {
+    when: '24 Ekim',
+    tag: 'Güvenlik',
+    title: 'Cold Take yayına hazırlık',
+    text: 'Hesaplar, şifre sıfırlama, telefon başına giriş anahtarı, hesap sayfası. Hedef: site → Android → iOS.',
+    accent: 'frost',
+  },
+  {
+    when: '26–27 Ekim',
+    tag: 'Rota',
+    title: 'Türkçe, tren ve gerçek model',
+    text: 'Türkçe arayüz, tren/otobüs, sabit link. Sonra gerçek modelle 4 tur hata avı: 124 sohbet, 587 model çağrısı tek tek okundu.',
+    accent: 'sun',
+  },
+  {
+    when: '2 Kasım',
+    tag: 'Hız',
+    title: 'Plan 108 sn → 65 sn',
+    text: 'Bozuk JSON onarımı, yer belliyse direkt plan, takılan turlar için zaman sınırı ve yedek model.',
+    accent: 'sun',
+  },
+  {
+    when: '4 Kasım',
+    tag: 'Bugün',
+    title: 'Bu sunum',
+    text: 'Bu site de aynı yöntemle yapıldı: plan, küçük adımlar, kontrol.',
+    accent: 'ember',
+  },
+]
