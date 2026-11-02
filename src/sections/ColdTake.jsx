@@ -8,8 +8,10 @@ import { Tag } from '../components/ui/Tag'
 import { coldTake } from '../content/coldtake'
 import { site } from '../content/site'
 import { RatingDemo } from './coldtake/RatingDemo'
+import { Callouts } from './shared/Callouts'
 import { FeatureCard } from './shared/FeatureCard'
 import { LinkButton } from './shared/LinkButton'
+import { ScreenFrame } from './shared/ScreenFrame'
 
 function Lab() {
   const { lab } = coldTake
@@ -94,6 +96,29 @@ export function ColdTake() {
               </Suspense>
             </LazyCanvas>
             <RatingDemo onReveal={onReveal} />
+          </div>
+        </div>
+
+        <div className="mt-32">
+          <Reveal>
+            <h3 className="text-3xl font-medium tracking-tight sm:text-4xl">
+              Canlı sitede, <span className="font-serif italic text-gradient-frost">bugün.</span>
+            </h3>
+          </Reveal>
+          <div className="mt-10">
+            <ScreenFrame src="./shots/coldtake-home.webp" url="ardacengo.pythonanywhere.com" alt="Cold Take ana sayfası" />
+          </div>
+          <Callouts items={coldTake.screens.home} />
+          <div className="mt-20 grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
+            <ScreenFrame src="./shots/coldtake-film.webp" url="ardacengo.pythonanywhere.com/movie/550" alt="Cold Take film sayfası" glow="#c7b8ff" />
+            <div>
+              <Reveal>
+                <p className="font-serif text-4xl italic text-gradient-frost">“Scores are hidden”</p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="mt-4 leading-relaxed text-muted">{coldTake.screens.film}</p>
+              </Reveal>
+            </div>
           </div>
         </div>
 

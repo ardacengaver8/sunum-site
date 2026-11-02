@@ -15,6 +15,16 @@ export const rota = {
     ],
   },
 
+  // Gerçek plan ekranı (paylaşım linkinden, hesapsız görünüm).
+  screen: {
+    lead: 'Rota’nın kaydettiği gerçek bir gezi, salt okunur paylaşım linkinden. Yurt dışı, uçakla, 4 gece.',
+    notes: [
+      'Gün gün, saatli plan. Her satır gerçek bir yer; fiyatı olanlar yanında.',
+      'Haritada konaklama (ev) ve planlanan yerler numaralı. Veriler OpenStreetMap ve Geoapify’dan.',
+      'Hava: tarih çok ilerideyse geçmiş yılların ortalaması. Maliyet kalem kalem, kişi sayısıyla.',
+    ],
+  },
+
   // Bir mesajın yolculuğu (docs/TECH_STACK.md).
   flow: [
     { node: 'Tarayıcı', tech: 'Next.js UI', text: 'Mesajı gönderir; gelen olayları kartlara çevirir (kartpostal, bilet, fiş).' },
@@ -27,14 +37,14 @@ export const rota = {
   ],
 
   features: [
-    { title: 'Seçenek → plan → bütçe', tag: 'Çekirdek', text: 'Önce kartpostal gibi seçenekler, sonra gün gün plan ve kalem kalem fiş.' },
-    { title: 'Arkadaşlarla planlama', tag: 'Birlikte', text: 'Davet linkiyle aynı sohbete gir, seçeneklere oy ver.' },
-    { title: 'Masraf bölüşme', tag: 'Birlikte', text: '“600 TL odun aldım” yaz, kim kime ne borçlu hesaplansın.' },
-    { title: 'Hava uyarısı', tag: 'Otomatik', text: 'Yaklaşan gezinin tahmini değişirse haber verir.' },
-    { title: 'Hafıza', tag: 'Agent', text: 'Nereden çıktığını, neyi sevdiğini hatırlar; Profil’de görünür.' },
-    { title: 'Tren ve otobüs', tag: 'Ulaşım', text: 'Arabanın yanında toplu taşıma seçenekleri ve feribot.' },
-    { title: 'Paylaşım linki', tag: 'Paylaş', text: 'Hesabı olmayana salt okunur plan: harita, hava, maliyet.' },
-    { title: 'Türkçe / İngilizce', tag: 'Arayüz', text: 'Her ekran iki dilde; agent da yazdığın dilde cevap verir.' },
+    { icon: 'Route', title: 'Seçenek → plan → bütçe', tag: 'Çekirdek', text: 'Önce kartpostal gibi seçenekler, sonra gün gün plan ve kalem kalem fiş.' },
+    { icon: 'UsersRound', title: 'Arkadaşlarla planlama', tag: 'Birlikte', text: 'Davet linkiyle aynı sohbete gir, seçeneklere oy ver.' },
+    { icon: 'Receipt', title: 'Masraf bölüşme', tag: 'Birlikte', text: '“600 TL odun aldım” yaz, kim kime ne borçlu hesaplansın.' },
+    { icon: 'CloudRain', title: 'Hava uyarısı', tag: 'Otomatik', text: 'Yaklaşan gezinin tahmini değişirse haber verir.' },
+    { icon: 'Brain', title: 'Hafıza', tag: 'Agent', text: 'Nereden çıktığını, neyi sevdiğini hatırlar; Profil’de görünür.' },
+    { icon: 'TrainFront', title: 'Tren ve otobüs', tag: 'Ulaşım', text: 'Arabanın yanında toplu taşıma seçenekleri ve feribot.' },
+    { icon: 'Link', title: 'Paylaşım linki', tag: 'Paylaş', text: 'Hesabı olmayana salt okunur plan: harita, hava, maliyet.' },
+    { icon: 'Languages', title: 'Türkçe / İngilizce', tag: 'Arayüz', text: 'Her ekran iki dilde; agent da yazdığın dilde cevap verir.' },
   ],
 
   phases: [
