@@ -17,11 +17,11 @@ export const rota = {
 
   // Gerçek plan ekranı (paylaşım linkinden, hesapsız görünüm).
   screen: {
-    lead: 'Rota’nın kaydettiği gerçek bir gezi, salt okunur paylaşım linkinden. Yurt dışı, uçakla, 4 gece.',
+    lead: 'Bugün planlanıp kaydedilen gerçek bir gezi, salt okunur paylaşım linkinden. Yer belli olduğu için seçenek sorulmadı, tek mesajda plan geldi.',
     notes: [
-      'Gün gün, saatli plan. Her satır gerçek bir yer; fiyatı olanlar yanında.',
-      'Haritada konaklama (ev) ve planlanan yerler numaralı. Veriler OpenStreetMap ve Geoapify’dan.',
-      'Hava: tarih çok ilerideyse geçmiş yılların ortalaması. Maliyet kalem kalem, kişi sayısıyla.',
+      'Gün gün, saatli plan. Her satırdaki numara haritadaki numarayla aynı; otel ev işaretiyle.',
+      'Her yerin altında linkler: haritada aç, varsa web sitesi, otelde fiyatlara bak. Veriler OpenStreetMap ve Geoapify’dan.',
+      'Hava: tarih çok ilerideyse geçmiş yılların ortalaması. Aşağıda maliyet kalem kalem, kişi sayısıyla.',
     ],
   },
 
@@ -38,11 +38,15 @@ export const rota = {
 
   features: [
     { icon: 'Route', title: 'Seçenek → plan → bütçe', tag: 'Çekirdek', text: 'Önce kartpostal gibi seçenekler, sonra gün gün plan ve kalem kalem fiş.' },
+    { icon: 'Zap', title: 'Yer belliyse direkt plan', tag: 'Yeni', text: '“Amasya’ya gidiyoruz” dersen seçenek beklemeden aynı turda plan ve bütçe.' },
+    { icon: 'MapPin', title: 'Numaralı harita ve linkler', tag: 'Yeni', text: 'Plandaki her yer haritada aynı numarayla; haritada aç, web sitesi, fiyat linki.' },
+    { icon: 'Signpost', title: 'Birkaç şehirli rota', tag: 'Yeni', text: 'Kapadokya → Antalya gibi gezilerde her şehrin gecesi, oteli ve arası ayrı hesaplanıyor.' },
     { icon: 'UsersRound', title: 'Arkadaşlarla planlama', tag: 'Birlikte', text: 'Davet linkiyle aynı sohbete gir, seçeneklere oy ver.' },
     { icon: 'Receipt', title: 'Masraf bölüşme', tag: 'Birlikte', text: '“600 TL odun aldım” yaz, kim kime ne borçlu hesaplansın.' },
     { icon: 'CloudRain', title: 'Hava uyarısı', tag: 'Otomatik', text: 'Yaklaşan gezinin tahmini değişirse haber verir.' },
     { icon: 'Brain', title: 'Hafıza', tag: 'Agent', text: 'Nereden çıktığını, neyi sevdiğini hatırlar; Profil’de görünür.' },
-    { icon: 'TrainFront', title: 'Tren ve otobüs', tag: 'Ulaşım', text: 'Arabanın yanında toplu taşıma seçenekleri ve feribot.' },
+    { icon: 'TrainFront', title: 'Tren, otobüs, feribot', tag: 'Ulaşım', text: 'Arabanın yanında toplu taşıma; uzaksa uçak, yolda feribot varsa onun ücreti de fişte.' },
+    { icon: 'RefreshCw', title: 'Canlı güncelleme', tag: 'Yeni', text: 'Arkadaşın aynı sohbete yazınca sayfayı yenilemeden görüyorsun.' },
     { icon: 'Link', title: 'Paylaşım linki', tag: 'Paylaş', text: 'Hesabı olmayana salt okunur plan: harita, hava, maliyet.' },
     { icon: 'Languages', title: 'Türkçe / İngilizce', tag: 'Arayüz', text: 'Her ekran iki dilde; agent da yazdığın dilde cevap verir.' },
   ],
@@ -66,8 +70,8 @@ export const rota = {
 
   stats: [
     { value: 409, label: 'commit' },
-    { value: 29, label: 'PR' },
-    { value: 929, label: 'test', note: '550 agent · 353 web · 26 E2E' },
+    { value: 30, label: 'PR' },
+    { value: 1017, label: 'test', note: '637 agent · 354 web · 26 E2E' },
     { value: 21, label: 'aşama' },
   ],
 

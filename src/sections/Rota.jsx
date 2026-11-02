@@ -143,12 +143,12 @@ export function Rota() {
         </div>
 
         <div className="mt-32">
-          <SubHeading accent="Belgrad, 3 kişi.">Gerçek bir plan:</SubHeading>
+          <SubHeading accent="Paris, 2 kişi.">Gerçek bir plan:</SubHeading>
           <Reveal delay={0.1}>
             <p className="mt-4 max-w-2xl text-muted">{rota.screen.lead}</p>
           </Reveal>
           <div className="mt-10">
-            <ScreenFrame src="./shots/rota-plan.webp" url="rota · paylaşım linki" alt="Rota'nın Belgrad planı" glow="#ffb347" />
+            <ScreenFrame src="./shots/rota-plan.webp" url="rota · paylaşım linki" alt="Rota'nın Paris planı" glow="#ffb347" />
           </div>
           <Callouts items={rota.screen.notes} tone="text-sun" />
         </div>

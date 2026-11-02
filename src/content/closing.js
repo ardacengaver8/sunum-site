@@ -3,7 +3,7 @@ export const totals = [
   { value: 3.5, decimals: 1, label: 'hafta' },
   { value: 2, label: 'canlı proje' },
   { value: 597, label: 'commit' },
-  { value: 1412, label: 'otomatik test' },
+  { value: 1500, label: 'otomatik test' },
   { value: 8, label: 'kurs ve bölüm', note: '3 Bazaar bölümü · 5 Academy kursu' },
 ]
 
@@ -68,7 +68,7 @@ export const next = [
     items: [
       'Restoranları harita bilgisinden puanlayıp sıralamak',
       'Plan yazılırken iskeleti hemen göstermek (günler, hava, harita)',
-      'Plandaki her yere harita işareti ve link',
+      'Yurt dışında tren ve otobüs saatleri',
     ],
   },
   {

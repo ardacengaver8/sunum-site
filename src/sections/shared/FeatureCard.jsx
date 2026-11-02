@@ -1,6 +1,6 @@
 import {
   Brain, CalendarHeart, ChartColumn, Clapperboard, CloudRain, Import, Languages, Link, ListOrdered,
-  Receipt, Route, Rss, Scale, TrainFront, Users, UsersRound, Vibrate,
+  MapPin, Receipt, RefreshCw, Route, Rss, Scale, Signpost, TrainFront, Users, UsersRound, Vibrate, Zap,
 } from 'lucide-react'
 import { Reveal } from '../../components/ui/Reveal'
 import { Tag } from '../../components/ui/Tag'
@@ -8,7 +8,7 @@ import { Tag } from '../../components/ui/Tag'
 // Only the icons the content uses, so the bundle stays small.
 const icons = {
   Brain, CalendarHeart, ChartColumn, Clapperboard, CloudRain, Import, Languages, Link, ListOrdered,
-  Receipt, Route, Rss, Scale, TrainFront, Users, UsersRound, Vibrate,
+  MapPin, Receipt, RefreshCw, Route, Rss, Scale, Signpost, TrainFront, Users, UsersRound, Vibrate, Zap,
 }
 
 const tones = {

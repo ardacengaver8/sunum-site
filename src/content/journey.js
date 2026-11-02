@@ -59,8 +59,8 @@ export const journey = [
   {
     when: '2 Kasım',
     tag: 'Hız',
-    title: 'Plan 108 sn → 65 sn',
-    text: 'Bozuk JSON onarımı, yer belliyse direkt plan, takılan turlar için zaman sınırı ve yedek model.',
+    title: 'Bir günde 10 PR',
+    text: 'Plan 108 sn → 65 sn. Bozuk JSON onarımı, yer belliyse direkt plan, zaman sınırı ve yedek model, canlı güncelleme, numaralı harita ve linkler, birkaç şehirli rotalar.',
     accent: 'sun',
   },
   {
