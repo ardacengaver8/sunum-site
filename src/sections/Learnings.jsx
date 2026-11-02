@@ -1,3 +1,4 @@
+import { Marquee } from '../components/ui/Marquee'
 import { Reveal } from '../components/ui/Reveal'
 import { Section } from '../components/ui/Section'
 import { SectionHeading } from '../components/ui/SectionHeading'
@@ -45,6 +46,11 @@ export function Learnings() {
             <Card key={item.title} item={item} index={i} />
           ))}
         </div>
+      </div>
+      <div className="mt-28 space-y-6">
+        <p className="text-center font-mono text-xs tracking-[0.25em] text-dim">3,5 HAFTADA DOKUNDUKLARIM</p>
+        <Marquee items={['Claude Code', 'Python', 'Flask', 'Expo', 'React Native', 'Next.js', 'TypeScript', 'Turborepo', 'Docker']} />
+        <Marquee reverse items={['LangGraph', 'LangChain', 'LangSmith', 'OpenRouter', 'PostgreSQL', 'Redis', 'GitHub Actions', 'Playwright', 'pytest']} />
       </div>
     </Section>
   )

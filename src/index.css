@@ -96,3 +96,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .grain { animation: none; }
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
