@@ -1,18 +1,20 @@
 import Lenis from 'lenis'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { CursorGlow } from './components/ui/CursorGlow'
 import { Nav } from './components/ui/Nav'
-import { sections } from './content/site'
+import { chapters, sections } from './content/site'
 import { ColdTake } from './sections/ColdTake'
 import { HowIWork, Lessons, Next, Numbers } from './sections/Closing'
 import { Hero } from './sections/Hero'
 import { Journey } from './sections/Journey'
 import { Learnings } from './sections/Learnings'
 import { Rota } from './sections/Rota'
+import { Chapter } from './sections/shared/Chapter'
 
 const NEXT_KEYS = ['ArrowDown', 'ArrowRight', 'PageDown', ' ']
 const PREV_KEYS = ['ArrowUp', 'ArrowLeft', 'PageUp']
 
-// Index of the section whose top has passed the upper third of the screen.
+// Index of the stop whose top has passed the upper third of the screen.
 function currentIndex() {
   const line = window.innerHeight / 3
   let index = 0
@@ -23,20 +25,31 @@ function currentIndex() {
   return index
 }
 
+// The nav highlights real sections; a chapter card counts as the one after it.
+function navId(index) {
+  const next = sections.slice(index).find((s) => !s.chapter)
+  return next ? next.id : sections[index].id
+}
+
+function chapter(id) {
+  return <Chapter id={id} {...chapters[id]} />
+}
+
 export default function App() {
   const lenis = useRef(null)
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState('giris')
 
-  const jump = useCallback((i) => {
-    const target = document.getElementById(sections[Math.max(0, Math.min(sections.length - 1, i))].id)
-    lenis.current?.scrollTo(target, { duration: 1.4 })
+  const jump = useCallback((target) => {
+    const i = typeof target === 'number' ? target : sections.findIndex((s) => s.id === target)
+    const el = document.getElementById(sections[Math.max(0, Math.min(sections.length - 1, i))].id)
+    lenis.current?.scrollTo(el, { duration: 1.4 })
   }, [])
 
   // Smooth scrolling + tracking which section is on screen.
   useEffect(() => {
     const instance = new Lenis({ lerp: 0.09 })
     lenis.current = instance
-    instance.on('scroll', () => setActive(currentIndex()))
+    instance.on('scroll', () => setActive(navId(currentIndex())))
     let frame
     const raf = (time) => {
       instance.raf(time)
@@ -49,8 +62,15 @@ export default function App() {
     }
   }, [])
 
-  // Presenter mode: arrow keys / PageUp / PageDown / space jump between
-  // sections (presentation clickers send PageUp/PageDown).
+  // The hero's 3D products ask to jump to their section.
+  useEffect(() => {
+    const onJump = (e) => jump(e.detail)
+    window.addEventListener('jump-to', onJump)
+    return () => window.removeEventListener('jump-to', onJump)
+  }, [jump])
+
+  // Presenter mode: arrow keys / PageUp / PageDown / space step through the
+  // stops (presentation clickers send PageUp/PageDown).
   useEffect(() => {
     const onKey = (e) => {
       if (e.target.closest('input, textarea, button')) return
@@ -66,13 +86,18 @@ export default function App() {
   return (
     <>
       <div className="grain" />
+      <CursorGlow />
       <Nav active={active} onJump={jump} />
       <main>
         <Hero />
+        {chapter('bolum-1')}
         <Journey />
         <Learnings />
+        {chapter('bolum-2')}
         <ColdTake />
+        {chapter('bolum-3')}
         <Rota />
+        {chapter('bolum-4')}
         <Numbers />
         <HowIWork />
         <Lessons />
