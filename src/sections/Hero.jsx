@@ -20,7 +20,7 @@ export function Hero() {
           eventSource={ref}
           eventPrefix="client"
           dpr={[1, 1.75]}
-          camera={{ position: [0, 4.2, 9], fov: 40 }}
+          camera={{ position: [0, 0.4, 9], fov: 40 }}
         >
           <Suspense fallback={null}>
             <HeroScene />
@@ -29,11 +29,11 @@ export function Hero() {
       </div>
 
       {/* Darken the bottom so the headline stays readable over the pylons. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink via-ink/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
 
       <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-14 sm:px-8 sm:pb-20">
         <motion.p {...rise(0.2)} className="font-mono text-xs tracking-[0.2em] text-muted">
-          {site.team} · {site.range}
+          {site.name} · {site.team} · {site.range}
         </motion.p>
         <motion.h1
           {...rise(0.35)}
@@ -52,11 +52,11 @@ export function Hero() {
             ne öğrendim, <span className="text-frost">Cold Take</span> ve{' '}
             <span className="text-sun">Rota</span> nasıl doğdu.
           </p>
-          <div className="flex items-center gap-4 font-mono text-xs text-dim">
-            <span>{site.name}</span>
-            <span className="h-px w-8 bg-dim" />
-            <span>objeye tıkla · ↓ ile ilerle</span>
-          </div>
+          <ul className="space-y-1.5 font-mono text-[11px] text-dim">
+            <li><span className="text-ember">●</span> ortada model</li>
+            <li><span className="text-violet">■</span> etrafında harness: model tool çağırır, sonuç döner</li>
+            <li><span className="text-frost">◆</span> yörüngede ürünler: tıkla, oraya git</li>
+          </ul>
         </motion.div>
       </div>
     </section>
