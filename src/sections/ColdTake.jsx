@@ -47,8 +47,10 @@ function Lab() {
 }
 
 export function ColdTake() {
-  const [revealed, setRevealed] = useState(false)
-  const onReveal = useCallback((v) => setRevealed(v), [])
+  // The locked score, or null while the poster is still sealed.
+  const [score, setScore] = useState(null)
+  const onReveal = useCallback((v) => setScore(v), [])
+  const revealed = score !== null
 
   return (
     <Section id="cold-take" className="py-32">
@@ -92,7 +94,7 @@ export function ColdTake() {
           <div className="grid gap-5">
             <LazyCanvas className="h-[420px] sm:h-[480px]" camera={{ position: [0, 0, 5.2], fov: 40 }} gl={{ alpha: true }}>
               <Suspense fallback={null}>
-                <SealScene revealed={revealed} />
+                <SealScene score={score} />
               </Suspense>
             </LazyCanvas>
             <RatingDemo onReveal={onReveal} />

@@ -15,6 +15,15 @@ export const rota = {
     ],
   },
 
+  // Dünyada sırayla öne çıkan örnek geziler ve Rota'nın o gezi için çağırdığı
+  // tool'lar (gerçek tool adları; şehirler GlobeScene'deki CITIES'ten).
+  globeTrips: [
+    { from: 'istanbul', to: 'sapanca', title: 'İstanbul → Sapanca', who: '3 arkadaş · göl kenarında ev', tools: ['compare_places', 'get_weather', 'get_distance', 'search_stays'] },
+    { from: 'istanbul', to: 'paris', title: 'İstanbul → Paris', who: '2 kişi · 4 gün', tools: ['get_distance', 'get_weather', 'search_places', 'convert_currency'] },
+    { from: 'kapadokya', to: 'antalya', title: 'Kapadokya → Antalya', who: 'birkaç şehirli rota', tools: ['compare_route', 'get_distance', 'search_stays', 'estimate_cost'] },
+    { from: 'izmir', to: 'tiflis', title: 'İzmir → Tiflis', who: 'yurt dışı · lari ile bütçe', tools: ['get_distance', 'search_places', 'search_stays', 'convert_currency'] },
+  ],
+
   // Gerçek plan ekranı (paylaşım linkinden, hesapsız görünüm).
   screen: {
     lead: 'Gerçek modelle yapılmış bir plan, hesabı olmayanların da açabildiği paylaşım linkinden. Şehir belli olduğu için Rota seçenek sormadı, doğrudan planı yazdı.',

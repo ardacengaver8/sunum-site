@@ -1,7 +1,4 @@
 import { motion } from 'motion/react'
-import { Suspense } from 'react'
-import { GlobeScene } from '../components/three/GlobeScene'
-import { LazyCanvas } from '../components/three/LazyCanvas'
 import { Counter } from '../components/ui/Counter'
 import { Reveal } from '../components/ui/Reveal'
 import { Section } from '../components/ui/Section'
@@ -10,6 +7,7 @@ import { rota } from '../content/rota'
 import { site } from '../content/site'
 import { ChatDemo } from './rota/ChatDemo'
 import { Flow } from './rota/Flow'
+import { Globe, GlobeCaption, useTripCycle } from './rota/Globe'
 import { Callouts } from './shared/Callouts'
 import { FeatureCard } from './shared/FeatureCard'
 import { LinkButton } from './shared/LinkButton'
@@ -96,6 +94,8 @@ function Hunt() {
 }
 
 export function Rota() {
+  const trip = useTripCycle()
+
   return (
     <Section id="rota" className="py-32">
       <div className="pointer-events-none absolute top-20 right-0 h-[40rem] w-[50rem] rounded-full bg-sun/10 blur-[150px]" />
@@ -121,12 +121,11 @@ export function Rota() {
             <Reveal delay={0.18}>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">{rota.intro}</p>
             </Reveal>
+            <Reveal delay={0.24} className="mt-8">
+              <GlobeCaption i={trip} />
+            </Reveal>
           </div>
-          <LazyCanvas className="h-[420px] sm:h-[560px]" camera={{ position: [0, 0, 5.9], fov: 40 }} gl={{ alpha: true }}>
-            <Suspense fallback={null}>
-              <GlobeScene />
-            </Suspense>
-          </LazyCanvas>
+          <Globe i={trip} />
         </div>
 
         <div className="mt-20 grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">

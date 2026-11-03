@@ -1,16 +1,16 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { ROOM_AVG, roomCurve } from './room'
 
 const HOLD_MS = 1000
-const ROOM_AVG = 7.4
 
-// The room's scores as a smooth hill (two bumps, like a real film's spread).
+// The room's scores as an SVG path.
 function useHillPath(width, height) {
   return useMemo(() => {
     const pts = []
     for (let i = 0; i <= 90; i++) {
       const s = 1 + (i / 90) * 9
-      const y = Math.exp(-((s - 7.6) ** 2) / 1.1) + 0.35 * Math.exp(-((s - 5.2) ** 2) / 0.8)
+      const y = roomCurve(s)
       pts.push([((s - 1) / 9) * width, height - y * (height - 12)])
     }
     return `M0 ${height} ` + pts.map(([x, y]) => `L${x.toFixed(1)} ${y.toFixed(1)}`).join(' ') + ` L${width} ${height} Z`
@@ -25,7 +25,7 @@ export function RatingDemo({ onReveal }) {
   const timer = useRef(null)
   const hill = useHillPath(400, 110)
 
-  useEffect(() => onReveal(locked), [locked, onReveal])
+  useEffect(() => onReveal(locked ? score : null), [locked, score, onReveal])
   useEffect(() => () => cancelAnimationFrame(timer.current), [])
 
   const startHold = () => {

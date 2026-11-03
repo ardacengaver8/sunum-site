@@ -261,6 +261,7 @@ function Harness({ pulse }) {
   const cores = useRef([])
   const arcLine = useRef(null)
   const last = useRef(-1)
+  const sent = useRef(-1)
   const material = usePointsMaterial()
 
   const arcGeo = useMemo(() => new THREE.BufferGeometry().setFromPoints(Array.from({ length: 48 }, () => new THREE.Vector3())), [])
@@ -337,9 +338,15 @@ function Harness({ pulse }) {
     trail.attributes.aColor.needsUpdate = true
     trail.attributes.aAlpha.needsUpdate = true
 
+    // Tell the page's live log (Hero.jsx) when a call leaves and when it lands.
+    if (sent.current !== round) {
+      sent.current = round
+      window.dispatchEvent(new CustomEvent('agent-step', { detail: { which, kind: 'call' } }))
+    }
     if (phase >= 0.9 && last.current !== round) {
       last.current = round
       pulse.current = 1
+      window.dispatchEvent(new CustomEvent('agent-step', { detail: { which, kind: 'result' } }))
     }
   })
 

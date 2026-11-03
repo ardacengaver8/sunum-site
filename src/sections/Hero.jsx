@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { Suspense, useRef } from 'react'
 import { HeroScene } from '../components/three/HeroScene'
 import { site } from '../content/site'
+import { AgentLog } from './hero/AgentLog'
 
 const rise = (delay) => ({
   initial: { opacity: 0, y: 40, filter: 'blur(10px)' },
@@ -33,6 +34,14 @@ export function Hero() {
           className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full border bg-ink/80 px-3 py-1 font-serif text-base whitespace-nowrap italic opacity-0 backdrop-blur transition-opacity duration-300"
         />
       </div>
+
+      {/* The scene's loop written out, in the empty space left of it. */}
+      <motion.div
+        {...rise(0.8)}
+        className="absolute top-28 left-4 z-10 hidden sm:left-8 lg:block xl:left-[max(2rem,calc((100vw-80rem)/2+2rem))] [@media(max-height:820px)]:hidden"
+      >
+        <AgentLog />
+      </motion.div>
 
       {/* Darken the bottom so the headline stays readable over the pylons. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
