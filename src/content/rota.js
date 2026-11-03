@@ -1,8 +1,8 @@
 // Rota bölümü.
 export const rota = {
-  tagline: 'Aklındaki geziyi yaz, Rota planlasın.',
+  tagline: 'Geziyi anlat, Rota planlasın.',
   intro:
-    'Serbestçe yazdığın bir mesajı seçeneklere, gün gün bir plana ve gerçek verilere dayanan bir bütçeye çeviren bir AI agent. Arkadaşlarınla aynı sohbette planlayıp oy verebiliyorsun.',
+    'Ekipten istenen agent projesi. “3 kişiyiz, göl kenarı, kişi başı 5.000 TL” gibi bir mesajdan önce birkaç seçenek, sonra gün gün plan ve bütçe çıkarıyor. Hava, mesafe ve mekânlar gerçek servislerden geliyor; model bunları uydurmuyor.',
 
   // Sohbet canlandırması (örnek veriler; gerçek demo sunumda).
   demo: {
@@ -17,38 +17,38 @@ export const rota = {
 
   // Gerçek plan ekranı (paylaşım linkinden, hesapsız görünüm).
   screen: {
-    lead: 'Bugün planlanıp kaydedilen gerçek bir gezi, salt okunur paylaşım linkinden. Yer belli olduğu için seçenek sorulmadı, tek mesajda plan geldi.',
+    lead: 'Gerçek modelle yapılmış bir plan, hesabı olmayanların da açabildiği paylaşım linkinden. Şehir belli olduğu için Rota seçenek sormadı, doğrudan planı yazdı.',
     notes: [
-      'Gün gün, saatli plan. Her satırdaki numara haritadaki numarayla aynı; otel ev işaretiyle.',
-      'Her yerin altında linkler: haritada aç, varsa web sitesi, otelde fiyatlara bak. Veriler OpenStreetMap ve Geoapify’dan.',
-      'Hava: tarih çok ilerideyse geçmiş yılların ortalaması. Aşağıda maliyet kalem kalem, kişi sayısıyla.',
+      'Gün gün, saatli plan. Satırdaki numara haritadaki numarayla aynı, otel ev işaretiyle gösteriliyor.',
+      'Her yerin altında haritada açma, varsa web sitesi, otelde fiyat linki var. Mekânlar OpenStreetMap ve Geoapify’dan geliyor.',
+      'Tarih tahmin için çok uzaksa hava, geçmiş yılların ortalamasından. En altta kişi sayısına göre kalem kalem maliyet.',
     ],
   },
 
   // Bir mesajın yolculuğu (docs/TECH_STACK.md).
   flow: [
-    { node: 'Tarayıcı', tech: 'Next.js UI', text: 'Mesajı gönderir; gelen olayları kartlara çevirir (kartpostal, bilet, fiş).' },
-    { node: 'Gateway', tech: 'Next.js Route Handler', text: 'Oturumu kontrol eder, anahtarları saklar, akışı tarayıcıya aktarır (SSE).' },
-    { node: 'Agent', tech: 'LangGraph · Python', text: 'Rota grafını başlatır. Model “hava ve konaklama lazım” der, tool’lar çalışır.' },
-    { node: 'Model', tech: 'OpenRouter', text: 'Ücretsiz modeller; biri çökerse yedek model cevaplar.' },
-    { node: 'Gerçek veri', tech: 'Open-Meteo · OSRM · Geoapify', text: 'Hava, mesafe, mekân, kur. Uydurma değil, ölçülen veri.' },
-    { node: 'Hafıza', tech: 'Postgres · Redis', text: 'Her adım kaydedilir; sayfa yenilense de sohbet kaldığı yerden devam eder.' },
-    { node: 'İz', tech: 'LangSmith', text: 'Her çalışmanın zaman çizelgesi: hangi adım ne kadar sürdü.' },
+    { node: 'Tarayıcı', tech: 'Next.js UI', text: 'Mesajı gönderiyor, akıştan gelen olayları kartlara çeviriyor: kartpostal, bilet, fiş.' },
+    { node: 'Gateway', tech: 'Next.js Route Handler', text: 'Oturumu kontrol ediyor, API anahtarlarını tarayıcıdan uzak tutuyor, akışı SSE ile aktarıyor.' },
+    { node: 'Agent', tech: 'LangGraph · Python', text: 'Grafı çalıştırıyor. Model “hava ve konaklama lazım” diyor, tool’ları agent çağırıyor.' },
+    { node: 'Model', tech: 'OpenRouter', text: 'Ücretsiz modeller. Ana model cevap vermezse yedek model devreye giriyor.' },
+    { node: 'Gerçek veri', tech: 'Open-Meteo · OSRM · Geoapify', text: 'Hava, mesafe, mekân, kur. Plandaki sayılar buradan geliyor.' },
+    { node: 'Hafıza', tech: 'Postgres · Redis', text: 'Her adım kaydediliyor; sayfa yenilense de sohbet kaldığı yerden devam ediyor.' },
+    { node: 'İz', tech: 'LangSmith', text: 'Her çalışmanın zaman çizelgesi. Yavaşlıkları buradan bulduk.' },
   ],
 
   features: [
-    { icon: 'Route', title: 'Seçenek → plan → bütçe', tag: 'Çekirdek', text: 'Önce kartpostal gibi seçenekler, sonra gün gün plan ve kalem kalem fiş.' },
-    { icon: 'Zap', title: 'Yer belliyse direkt plan', tag: 'Yeni', text: '“Amasya’ya gidiyoruz” dersen seçenek beklemeden aynı turda plan ve bütçe.' },
-    { icon: 'MapPin', title: 'Numaralı harita ve linkler', tag: 'Yeni', text: 'Plandaki her yer haritada aynı numarayla; haritada aç, web sitesi, fiyat linki.' },
-    { icon: 'Signpost', title: 'Birkaç şehirli rota', tag: 'Yeni', text: 'Kapadokya → Antalya gibi gezilerde her şehrin gecesi, oteli ve arası ayrı hesaplanıyor.' },
-    { icon: 'UsersRound', title: 'Arkadaşlarla planlama', tag: 'Birlikte', text: 'Davet linkiyle aynı sohbete gir, seçeneklere oy ver.' },
-    { icon: 'Receipt', title: 'Masraf bölüşme', tag: 'Birlikte', text: '“600 TL odun aldım” yaz, kim kime ne borçlu hesaplansın.' },
-    { icon: 'CloudRain', title: 'Hava uyarısı', tag: 'Otomatik', text: 'Yaklaşan gezinin tahmini değişirse haber verir.' },
-    { icon: 'Brain', title: 'Hafıza', tag: 'Agent', text: 'Nereden çıktığını, neyi sevdiğini hatırlar; Profil’de görünür.' },
-    { icon: 'TrainFront', title: 'Tren, otobüs, feribot', tag: 'Ulaşım', text: 'Arabanın yanında toplu taşıma; uzaksa uçak, yolda feribot varsa onun ücreti de fişte.' },
+    { icon: 'Route', title: 'Seçenek → plan → bütçe', tag: 'Çekirdek', text: 'Önce kartpostal gibi 2–3 seçenek, birini seçince gün gün plan ve bütçe fişi.' },
+    { icon: 'Zap', title: 'Yer belliyse direkt plan', tag: 'Yeni', text: '“Amasya’ya gidiyoruz” dersen seçenek sormadan doğrudan planı yazıyor.' },
+    { icon: 'MapPin', title: 'Numaralı harita ve linkler', tag: 'Yeni', text: 'Plandaki her yer haritada aynı numarayla; altında harita, site ve fiyat linkleri.' },
+    { icon: 'Signpost', title: 'Birkaç şehirli rota', tag: 'Yeni', text: 'Kapadokya → Antalya gibi gezilerde her şehrin gecesi, oteli ve aradaki yol ayrı hesaplanıyor.' },
+    { icon: 'UsersRound', title: 'Arkadaşlarla planlama', tag: 'Birlikte', text: 'Davet linkiyle arkadaşların aynı sohbete giriyor, seçeneklere oy veriyor.' },
+    { icon: 'Receipt', title: 'Masraf bölüşme', tag: 'Birlikte', text: '“600 TL odun aldım” yazınca kimin kime ne borçlu olduğunu hesaplıyor.' },
+    { icon: 'CloudRain', title: 'Hava uyarısı', tag: 'Otomatik', text: 'Yaklaşan gezinin hava tahmini değişirse haber veriyor.' },
+    { icon: 'Brain', title: 'Hafıza', tag: 'Agent', text: 'Nereden yola çıktığını, neyi sevdiğini hatırlıyor; Profil sayfasında görünüyor.' },
+    { icon: 'TrainFront', title: 'Tren, otobüs, feribot', tag: 'Ulaşım', text: 'Arabanın yanında tren ve otobüs; uzaksa uçak. Yolda feribot varsa ücreti fişe ekleniyor.' },
     { icon: 'RefreshCw', title: 'Canlı güncelleme', tag: 'Yeni', text: 'Arkadaşın aynı sohbete yazınca sayfayı yenilemeden görüyorsun.' },
-    { icon: 'Link', title: 'Paylaşım linki', tag: 'Paylaş', text: 'Hesabı olmayana salt okunur plan: harita, hava, maliyet.' },
-    { icon: 'Languages', title: 'Türkçe / İngilizce', tag: 'Arayüz', text: 'Her ekran iki dilde; agent da yazdığın dilde cevap verir.' },
+    { icon: 'Link', title: 'Paylaşım linki', tag: 'Paylaş', text: 'Hesabı olmayan biri de planı, haritayı ve maliyeti görebiliyor.' },
+    { icon: 'Languages', title: 'Türkçe / İngilizce', tag: 'Arayüz', text: 'Arayüz iki dilde; agent da hangi dilde yazarsan o dilde cevap veriyor.' },
   ],
 
   phases: [
@@ -77,7 +77,7 @@ export const rota = {
 
   hunt: {
     title: 'Gerçek modelle hata avı',
-    text: 'Testler geçiyor diye bitmiyor. Gerçek modelle 80 garip ve normal senaryo, ardından LangSmith’ten 124 sohbet indirildi; 6 alt ajan her konuşmayı okuyup hataları çıkardı.',
+    text: 'Testler sahte modelle çalışıyor, gerçek model başka şeyler yapıyor. Gerçek modelle normal ve garip 80 senaryo denedik, LangSmith’ten 124 sohbeti indirdik ve 6 alt ajana böldük. Her biri konuşmaları okuyup modelin nerede yanlış yaptığını listeledi.',
     numbers: [
       { value: 124, label: 'sohbet' },
       { value: 587, label: 'model çağrısı' },

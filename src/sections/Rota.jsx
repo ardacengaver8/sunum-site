@@ -134,8 +134,9 @@ export function Rota() {
             <SubHeading accent="Kartlar.">Cevap düz yazı değil.</SubHeading>
             <Reveal delay={0.1}>
               <p className="mt-5 leading-relaxed text-muted">
-                Agent çalışırken ne yaptığını adım adım gösteriyor. Sonuç, akıştaki olaylardan çizilen kartlar: seçenekler
-                kartpostal, ulaşım bilet, bütçe fiş. Buna <span className="text-fg">generative UI</span> deniyor.
+                Agent çalışırken ne yaptığını adım adım gösteriyor. Model düz metin yerine yapılandırılmış veri dönüyor, arayüz
+                onu karta çeviriyor: seçenekler kartpostal, ulaşım bilet, bütçe fiş. Buna{' '}
+                <span className="text-fg">generative UI</span> deniyor.
               </p>
             </Reveal>
           </div>
@@ -157,7 +158,7 @@ export function Rota() {
           <div className="mx-auto max-w-3xl text-center">
             <SubHeading accent="yolculuğu">Bir mesajın</SubHeading>
             <Reveal delay={0.1}>
-              <p className="mt-4 text-muted">Enter’a bastığın andan kartın çizildiği ana kadar. Kaydırdıkça ilerliyor.</p>
+              <p className="mt-4 text-muted">Enter’a bastığın andan kartın ekrana çizildiği ana kadar. Kaydırdıkça ilerliyor.</p>
             </Reveal>
           </div>
           <div className="mt-16">
@@ -169,14 +170,14 @@ export function Rota() {
           <SubHeading accent="22 aşama.">Plandan internete:</SubHeading>
           <Reveal delay={0.1}>
             <p className="mt-4 max-w-2xl text-muted">
-              Her aşama ayrı bir dal ve PR. CI yeşil olmadan merge yok. İlk 15 aşama 4 günde bitti.
+              Her aşama ayrı bir dal ve PR, CI yeşil olmadan merge yok. İlk plan 10 aşamaydı; gerçek modelle denedikçe yenileri eklendi.
             </p>
           </Reveal>
           <Phases />
         </div>
 
         <div className="mt-24">
-          <SubHeading accent="Planlamaktan fazlası.">Bir gezi uygulaması:</SubHeading>
+          <SubHeading accent="ne yapabiliyor?">Planın dışında</SubHeading>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {rota.features.map((f, i) => (
               <FeatureCard key={f.title} feature={f} index={i} tone="sun" />

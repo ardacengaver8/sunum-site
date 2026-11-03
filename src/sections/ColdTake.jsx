@@ -41,7 +41,7 @@ function Lab() {
           </div>
         ))}
       </div>
-      <p className="font-mono text-[11px] text-dim lg:col-span-2">test sayısı · her turda temiz context, işin bittiğine testler karar veriyor</p>
+      <p className="font-mono text-[11px] text-dim lg:col-span-2">test sayısı · her tur temiz context ile başlıyor, görevin bittiğine pytest karar veriyor</p>
     </Reveal>
   )
 }
@@ -125,7 +125,7 @@ export function ColdTake() {
         <div className="mt-28">
           <Reveal>
             <h3 className="text-3xl font-medium tracking-tight sm:text-4xl">
-              Kör kural her yerde. <span className="font-serif italic text-gradient-frost">Sosyal ama ön yargısız.</span>
+              Arkadaşlarla da, <span className="font-serif italic text-gradient-frost">ama yine körlemesine.</span>
             </h3>
           </Reveal>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

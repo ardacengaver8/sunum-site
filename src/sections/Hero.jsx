@@ -45,18 +45,18 @@ export function Hero() {
           {...rise(0.35)}
           className="mt-6 text-[13vw] font-medium leading-[0.92] tracking-[-0.04em] sm:text-[8.5vw] lg:text-[7.4rem]"
         >
-          <span className="font-serif font-normal italic text-gradient-dusk">3,5 haftada</span>
+          <span className="font-serif font-normal italic text-gradient-dusk">Yaparak</span>
           <br />
-          iki canlı ürün.
+          öğrendiklerim.
         </motion.h1>
         <motion.div
           {...rise(0.55)}
           className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
         >
           <p className="max-w-xl text-lg leading-relaxed text-muted">
-            AI engineering’i okuyarak değil, yaparak öğrendim. Bu sayfa o yolculuğun haritası:
-            ne öğrendim, <span className="text-frost">Cold Take</span> ve{' '}
-            <span className="text-sun">Rota</span> nasıl doğdu.
+            Kurslarda okuduklarımı iki projede denedim: kör film puanlama sitesi{' '}
+            <span className="text-frost">Cold Take</span> ve gezi planlayan agent{' '}
+            <span className="text-sun">Rota</span>. Neyi neden öyle yaptığımızı ve nerede yanıldığımı anlatacağım.
           </p>
           <ul className="space-y-1.5 font-mono text-[11px] text-dim">
             <li><span className="text-ember">●</span> ortada model</li>

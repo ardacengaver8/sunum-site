@@ -50,7 +50,7 @@ export function Journey() {
             eyebrow="01 · Yolculuk"
             title="Gün gün,"
             accent="ne oldu?"
-            lead="İlk gün Python denemelerinden bugünkü sunuma kadar. Aşağı kaydırdıkça zaman ilerliyor."
+            lead="İlk günkü denemelerden bugüne, kısaca. Aşağı kaydırdıkça zaman ilerliyor."
           />
         </div>
         <motion.div ref={track} style={{ x }} className="mt-12 flex gap-5 px-4 sm:px-8 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">

@@ -12,7 +12,7 @@ export function Numbers() {
   return (
     <Section id="rakamlar" className="py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="05 · Rakamlar" title="3,5 hafta," accent="sayılarla." />
+        <SectionHeading eyebrow="05 · Rakamlar" title="Biraz" accent="sayı." />
         <div className="mt-16 grid grid-cols-2 border-t border-line lg:grid-cols-5">
           {totals.map((t, i) => (
             <Reveal key={t.label} delay={i * 0.08} className="border-b border-line py-10 pr-4 lg:border-r lg:border-b-0 lg:pl-6 lg:first:pl-0 lg:last:border-r-0">
@@ -37,7 +37,7 @@ export function HowIWork() {
           eyebrow="06 · Nasıl çalışıyorum"
           title="Kodu Claude yazıyor,"
           accent="yönü ben veriyorum."
-          lead="Şirketin isteği kodu mümkün olduğunca AI’a yazdırmak. Benim işim neyin, neden ve ne zaman bittiğine karar vermek."
+          lead="Kodu elle yazmıyorum. Benim işim ne yapılacağına, nasıl test edileceğine ve ne zaman bittiğine karar vermek."
         />
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {howIWork.map((s, i) => (
@@ -101,7 +101,7 @@ export function Lessons() {
           eyebrow="07 · Dersler"
           title="Ters giden şeyler"
           accent="ve öğrettikleri."
-          lead="En çok, işler bozulduğunda öğrendim."
+          lead="En çok şey öğrendiğim anlar, bir şeylerin bozulduğu anlardı."
         />
         <Reveal className="border-t border-line">
           {lessons.map((l, i) => (
@@ -117,7 +117,7 @@ export function Next() {
   return (
     <Section id="son" className="pt-32 pb-16">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="08 · Sırada" title="Bitmedi," accent="devam ediyor." />
+        <SectionHeading eyebrow="08 · Sırada" title="Yarım kalanlar" accent="ve sırada olanlar." />
         <div className="mt-16 grid gap-5 md:grid-cols-2">
           {next.map((p, i) => (
             <Reveal key={p.project} delay={i * 0.1}>

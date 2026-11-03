@@ -1,35 +1,35 @@
 // Rakamlar, çalışma şekli, dersler ve sırada olanlar.
 export const totals = [
-  { value: 3.5, decimals: 1, label: 'hafta' },
-  { value: 2, label: 'canlı proje' },
-  { value: 597, label: 'commit' },
-  { value: 1500, label: 'otomatik test' },
+  { value: 2, label: 'proje', note: 'Cold Take · Rota' },
+  { value: 597, label: 'commit', note: 'küçük adımlar, hepsi git’te' },
+  { value: 1500, label: 'otomatik test', note: 'çoğunu Claude yazdı' },
+  { value: 30, label: 'Rota PR’ı', note: 'her biri CI’dan geçti' },
   { value: 8, label: 'kurs ve bölüm', note: '3 Bazaar bölümü · 5 Academy kursu' },
 ]
 
 export const howIWork = [
   {
     n: '01',
-    title: 'Fikri netleştir',
-    text: 'Kod yok. Önce ne istediğimi yazıyorum: amaç, kapsam dışı, tasarım taslakları. Claude soru soruyor, ben karar veriyorum.',
+    title: 'Önce ne istediğimi yaz',
+    text: 'Kodla başlamıyoruz. Amaç, kapsam dışı olanlar ve ekran taslakları önce yazılıyor. Claude soru soruyor, kararları ben veriyorum.',
     files: ['INTENT.md', 'SRS.md', 'mockups/'],
   },
   {
     n: '02',
-    title: 'Aşamalara böl',
-    text: 'PLAN.md’de her aşamanın ne bitince bittiğini yazıyoruz. Her aşama ayrı dal, 8–15 küçük commit, tek PR.',
+    title: 'Küçük parçalara böl',
+    text: 'PLAN.md’de her aşamanın ne zaman bitmiş sayılacağı yazıyor. Her aşama ayrı dal ve tek PR; içinde 8–15 küçük commit.',
     files: ['PLAN.md', 'CLAUDE.md'],
   },
   {
     n: '03',
-    title: 'Testle ve incelet',
-    text: 'Kod ve testi birlikte. CI yeşil olmadan merge yok. Büyük işlerden sonra inceleme ajanları kodu baştan okuyor.',
+    title: 'Testsiz merge yok',
+    text: 'Kod ve testi birlikte yazılıyor. CI yeşil olmadan merge etmiyoruz. Büyük bir işten sonra kodu baştan okuması için ayrı bir inceleme ajanı açıyoruz.',
     files: ['pytest', 'Vitest', 'Playwright', 'CI'],
   },
   {
     n: '04',
-    title: 'Gerçek dünyada dene',
-    text: 'Gerçek modelle, gerçek senaryolarla (yurt dışı dahil) dene; trace’leri oku, ölç, düzelt, tekrar.',
+    title: 'Gerçekte dene',
+    text: 'Testler geçince bitmiyor. Gerçek modelle, Türkiye dışı şehirler de dahil gerçek isteklerle deniyorum; trace’leri okuyup düzeltiyoruz.',
     files: ['LangSmith', 'senaryolar'],
   },
 ]
@@ -37,27 +37,27 @@ export const howIWork = [
 export const lessons = [
   {
     q: 'Testler gerçek veritabanını sildi.',
-    a: 'Cold Take’te test ayarları yanlış sırayla yüklenince testler canlı veritabanında çalıştı. Artık testler gerçek veritabanını görürse hiç başlamıyor; riskli işlerden önce yedek alıyorum.',
+    a: 'Cold Take’te test ayarları yanlış sırada yüklenince testler benim yerel veritabanımda çalıştı ve sildi. Şimdi testler gerçek veritabanını görürse hiç başlamıyor; riskli bir şeyden önce yedek alıyorum.',
   },
   {
-    q: 'Model yer adı uydurdu.',
-    a: 'Bir model, tool’dan gelmeyen bir yer önerdi. Prompt’a “tool’dan gelmeyen yer ya da fiyat söyleme” kuralı girdi; fiyatlar ve bütçe cümleleri artık koddan geliyor.',
+    q: 'Model olmayan bir yer önerdi.',
+    a: 'Model karşılaştırmasında bir model, hiçbir tool’un döndürmediği bir yer adı yazdı. Prompt’a “tool’dan gelmeyen yer ya da fiyat söyleme” kuralı girdi; fiyatları ve bütçe cümlelerini artık model değil kod yazıyor.',
   },
   {
-    q: 'Ücretsiz model çöktü.',
-    a: 'Ana model OpenRouter’da %0 erişilebilir oldu, bir tur 5 dakika takıldı. Her model cevabına 120 sn sınır kondu; dolarsa yedek model cevaplıyor.',
+    q: 'Ücretsiz model ortadan kayboldu.',
+    a: 'Ana modelimiz bir gün OpenRouter’da hiç cevap vermedi, bir istek 5 dakika bekledi. Her model çağrısına 120 sn sınır koyduk; süre dolunca yedek model cevaplıyor.',
   },
   {
-    q: 'Model bozuk JSON gönderdi.',
-    a: 'Plan kartı bazen açılmıyordu. Sebebi trace’te çıktı: sondaki virgül, yanlış parantez. Modele güvenmek yerine araya bir onarım katmanı koyduk.',
+    q: 'Plan kartı bazen hiç açılmıyordu.',
+    a: 'Trace’e bakınca sebep çıktı: model JSON’u bozuk gönderiyordu, sonda fazladan virgül ya da eksik parantez. Modelin hep düzgün yazmasını beklemek yerine araya küçük bir onarım adımı koyduk.',
   },
   {
-    q: 'Yavaşlık sandığım yerde değildi.',
-    a: 'Eski mesajları suçluyordum; trace’ler modelin kartın sayılarını boşuna yazdığını gösterdi. Şema yarıya indi, sayılar koddan geldi.',
+    q: 'Yavaşlığın sebebini yanlış tahmin ettim.',
+    a: 'Uzun sohbet geçmişinin yavaşlattığını düşünüyordum. Trace’ler modelin kartlardaki sayıları da tek tek yazdığını gösterdi. O sayıları koda verdik, modelin yazdığı kısım yarıya indi.',
   },
   {
-    q: 'Ralph loop mu, doğrudan Claude mu?',
-    a: 'Büyük, net bölünmüş iş paketlerinde Ralph loop iyi. Küçük değişikliklerde doğrudan çalışmak hem daha hızlı hem daha az kota harcıyor.',
+    q: 'Ralph loop her iş için değil.',
+    a: 'Net bölünmüş büyük işlerde iyi çalışıyor. Küçük bir değişiklik için döngü kurmak, doğrudan Claude ile konuşmaktan hem daha yavaş hem daha pahalı.',
   },
 ]
 
@@ -66,8 +66,8 @@ export const next = [
     project: 'Rota',
     hue: 'sun',
     items: [
-      'Restoranları harita bilgisinden puanlayıp sıralamak',
-      'Plan yazılırken iskeleti hemen göstermek (günler, hava, harita)',
+      'Restoranları harita bilgisine göre puanlayıp sıralamak (şu an aynı kafe planda üç kez çıkabiliyor)',
+      'Plan yazılırken günleri, havayı ve haritayı hemen göstermek',
       'Yurt dışında tren ve otobüs saatleri',
     ],
   },
@@ -75,9 +75,9 @@ export const next = [
     project: 'Cold Take',
     hue: 'frost',
     items: [
-      'Herkese açılış: önce site, sonra Android, en son iOS',
-      'Şikâyet / engelleme, yasal sayfalar',
-      'coldtake alan adı',
+      'Herkese açmak: önce site, sonra Android, en son iOS',
+      'Şikâyet, engelleme ve yasal sayfalar',
+      'Kendi alan adı',
     ],
   },
 ]

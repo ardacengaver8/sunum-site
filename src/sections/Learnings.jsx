@@ -38,8 +38,8 @@ export function Learnings() {
         <SectionHeading
           eyebrow="02 · Öğrendiklerim"
           title="Kavramlar,"
-          accent="ellerimle denediğim haliyle."
-          lead="AI Engineering Bazaar ve Claude Academy’de okuduklarımı, Amirkia ile her gün 16:00’daki daily’de sorduklarımı ve projelerde gördüklerimi sekiz başlıkta topladım."
+          accent="projede gördüğüm haliyle."
+          lead="Kurslarda okuduğum, daily’lerde sorduğum ve sonra projelerde gerçekten karşılaştığım sekiz şey. Her birinin yanında nerede işime yaradığını yazdım."
         />
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {learnings.map((item, i) => (
@@ -48,7 +48,7 @@ export function Learnings() {
         </div>
       </div>
       <div className="mt-28 space-y-6">
-        <p className="text-center font-mono text-xs tracking-[0.25em] text-dim">3,5 HAFTADA DOKUNDUKLARIM</p>
+        <p className="text-center font-mono text-xs tracking-[0.25em] text-dim">KULLANDIKLARIM</p>
         <Marquee items={['Claude Code', 'Python', 'Flask', 'Expo', 'React Native', 'Next.js', 'TypeScript', 'Turborepo', 'Docker']} />
         <Marquee reverse items={['LangGraph', 'LangChain', 'LangSmith', 'OpenRouter', 'PostgreSQL', 'Redis', 'GitHub Actions', 'Playwright', 'pytest']} />
       </div>

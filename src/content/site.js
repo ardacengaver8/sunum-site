@@ -31,8 +31,8 @@ export const sections = [
 
 // Bölüm ara ekranları.
 export const chapters = {
-  'bolum-1': { number: 'I', title: 'Öğrenmek', word: 'öğrenmek', line: 'Kurslar, daily soruları ve ilk denemeler.', tone: 'dusk' },
-  'bolum-2': { number: 'II', title: 'Cold Take', word: 'mühürlü', line: 'İlk ürün: önce sen puanla, sonra salonu gör.', tone: 'frost' },
-  'bolum-3': { number: 'III', title: 'Rota', word: 'agent', line: 'Gerçek bir AI agent: zorunlu teknolojilerle, sıfırdan internete.', tone: 'sun' },
-  'bolum-4': { number: 'IV', title: 'Geriye bakış', word: 'dersler', line: 'Sayılar, çalışma şeklim ve ters giden şeyler.', tone: 'dusk' },
+  'bolum-1': { number: 'I', title: 'Öğrenmek', word: 'öğrenmek', line: 'Kurslar, daily’deki sorular ve ilk denemeler.', tone: 'dusk' },
+  'bolum-2': { number: 'II', title: 'Cold Take', word: 'kör puan', line: 'İlk proje: film puanlarken başkalarının puanından etkilenmemek.', tone: 'frost' },
+  'bolum-3': { number: 'III', title: 'Rota', word: 'agent', line: 'Ekibin verdiği teknolojilerle bir AI agent: plandan internete.', tone: 'sun' },
+  'bolum-4': { number: 'IV', title: 'Geriye bakış', word: 'dersler', line: 'Nasıl çalıştığım, ters giden şeyler ve sırada olanlar.', tone: 'dusk' },
 }
