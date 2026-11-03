@@ -44,7 +44,7 @@ export const rota = {
     { icon: 'UsersRound', title: 'Arkadaşlarla planlama', tag: 'Birlikte', text: 'Davet linkiyle arkadaşların aynı sohbete giriyor, seçeneklere oy veriyor.' },
     { icon: 'Receipt', title: 'Masraf bölüşme', tag: 'Birlikte', text: '“600 TL odun aldım” yazınca kimin kime ne borçlu olduğunu hesaplıyor.' },
     { icon: 'CloudRain', title: 'Hava uyarısı', tag: 'Otomatik', text: 'Yaklaşan gezinin hava tahmini değişirse haber veriyor.' },
-    { icon: 'Brain', title: 'Hafıza', tag: 'Agent', text: 'Nereden yola çıktığını, neyi sevdiğini hatırlıyor; Profil sayfasında görünüyor.' },
+    { icon: 'Brain', title: 'Hafıza', tag: 'Agent', text: 'Nereden yola çıktığını, neyi sevdiğini hatırlıyor; Profil’den görüp silebiliyorsun.' },
     { icon: 'TrainFront', title: 'Tren, otobüs, feribot', tag: 'Ulaşım', text: 'Arabanın yanında tren ve otobüs; uzaksa uçak. Yolda feribot varsa ücreti fişe ekleniyor.' },
     { icon: 'RefreshCw', title: 'Canlı güncelleme', tag: 'Yeni', text: 'Arkadaşın aynı sohbete yazınca sayfayı yenilemeden görüyorsun.' },
     { icon: 'Link', title: 'Paylaşım linki', tag: 'Paylaş', text: 'Hesabı olmayan biri de planı, haritayı ve maliyeti görebiliyor.' },
