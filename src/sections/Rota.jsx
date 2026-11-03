@@ -216,7 +216,8 @@ export function Rota() {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <LinkButton href={site.links.rotaRepo} tone="sun">GitHub</LinkButton>
+          <LinkButton href={site.links.rotaLive} tone="sun">Canlı site</LinkButton>
+          <LinkButton href={site.links.rotaRepo}>GitHub</LinkButton>
         </div>
       </div>
     </Section>

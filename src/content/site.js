@@ -7,6 +7,8 @@ export const site = {
     coldTakeRepo: '',
     coldTakeLive: 'https://ardacengo.pythonanywhere.com',
     rotaRepo: '',
+    // Tailscale Funnel ile sabit adres; sadece laptopta `npm run online` açıkken çalışır.
+    rotaLive: 'https://ardacengo-thinkpad-e15-gen-3.tail6b4444.ts.net',
     github: 'https://github.com/ardacengaver8',
   },
 }
