@@ -66,9 +66,8 @@ export const next = [
     project: 'Rota',
     hue: 'sun',
     items: [
-      'Restoranları harita bilgisine göre puanlayıp sıralamak (şu an aynı kafe planda üç kez çıkabiliyor)',
-      'Plan yazılırken günleri, havayı ve haritayı hemen göstermek',
-      'Yurt dışında tren ve otobüs saatleri',
+      'Yurt dışında tren ve otobüs saatleri (Transitous kullanmak için reponun açık olması gerekiyor)',
+      'Son aşama: ekran görüntülü README, kısa demo ve tek sayfalık mimari özeti',
     ],
   },
   {
